@@ -5,4 +5,6 @@
   [& args]
   (println "Hello, World!"))
 
-(defn adjust [world] nil)
+(defn adjust [world] 
+  {:thrust 0}
+)
