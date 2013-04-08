@@ -1,7 +1,12 @@
 (ns lunar-landing.core-test
   (:use clojure.test
-        lunar-landing.core))
+        lunar-landing.core)
+  (:require [lunar-landing.core :as lander]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest lander-should-generate-course-corrections
+	(testing "Lander did not respond"
+		(is (not (nil? (lander/adjust {}))))))
+
+(deftest land-at-rest-remains-at-rest
+  (testing "Lander moved from rest"
+    (is (= 0 (:thrust (lander/adjust {:height 0 :velocity 0}))))))
